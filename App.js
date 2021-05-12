@@ -1,7 +1,9 @@
 import { StatusBar } from 'expo-status-bar';
 import React, { useEffect, useState } from 'react';
-import { StyleSheet, Text, View, FlatList } from 'react-native';
+import { StyleSheet, Text, View, FlatList, TouchableOpacity} from 'react-native';
 import AddButton from './components/AddButton';
+import ToAddList from './components/ToAddList';
+
 import Fire from './fire';
 
 export default function App() {
@@ -24,11 +26,26 @@ export default function App() {
     });
   }, []);
 
+  const renderTodo = (list) => (
+    <View>
+      <Text>{list.item.title}</Text> 
+      <Text>state : {list.item.completed}</Text> 
+
+
+    </View>
+  );
+
   const renderList = ( list ) => (
     <View>
       <Text>{list.item.name}</Text> 
+      <FlatList
+        data={list.item.todos}
+        renderItem={renderTodo}
+        keyExtractor={(list) => list.id}
+      />
     </View>
   );
+ 
     console.log("lists", lists);
   return (
     <View style={styles.container}>
@@ -39,8 +56,7 @@ export default function App() {
         renderItem={renderList}
         keyExtractor={(list) => list.id}
       />
-    </View>
-    
+    </View>    
   );
 
 }

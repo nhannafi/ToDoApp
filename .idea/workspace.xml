@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="NONE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="b434b871-c0ef-457e-989d-12ed9cea4730" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/App.js" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1sQrMBfuLjoVznw4bppysMNpOYR" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="b434b871-c0ef-457e-989d-12ed9cea4730" name="Default Changelist" comment="" />
+      <created>1620815614236</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1620815614236</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="395" y="-954" width="1720" height="880" key="AVDManager" timestamp="1620831559960">
+      <screen x="195" y="-1080" width="1920" height="1080" />
+    </state>
+    <state x="419" y="-954" width="1720" height="880" key="AVDManager/195.-1057.1920.1057/0.23.1440.830@195.-1057.1920.1057" timestamp="1620816047657" />
+    <state x="286" y="-954" width="1720" height="880" key="AVDManager/195.-1057.1920.1057/0.23.1440.833@195.-1057.1920.1057" timestamp="1620829964787" />
+    <state x="419" y="-954" width="1720" height="880" key="AVDManager/195.-1080.1920.1080/0.0.1440.900@195.-1080.1920.1080" timestamp="1620821146274" />
+    <state x="395" y="-954" width="1720" height="880" key="AVDManager/195.-1080.1920.1080/0.23.1440.827@195.-1080.1920.1080" timestamp="1620831559960" />
+    <state x="820" y="-284" key="run.anything.popup" timestamp="1620815647948">
+      <screen x="195" y="-1080" width="1920" height="1080" />
+    </state>
+    <state x="820" y="-284" key="run.anything.popup/195.-1080.1920.1080/0.0.1440.900@195.-1080.1920.1080" timestamp="1620815647948" />
+  </component>
+</project>
