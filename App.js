@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import React, { useEffect, useState } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, FlatList } from 'react-native';
 import AddButton from './components/AddButton';
 import Fire from './fire';
 
@@ -8,8 +8,6 @@ export default function App() {
   
   const [lists, setLists] = useState([]);
   const [loading, setLoading] = useState(true);
-
-  var firebase = null;
   
   useEffect(() => {
     firebase = new Fire((error) => {
@@ -25,11 +23,22 @@ export default function App() {
       };
     });
   }, []);
+
+  const renderList = ( list ) => (
+    <View>
+      <Text>{list.item.name}</Text> 
+    </View>
+  );
+    console.log("lists", lists);
   return (
     <View style={styles.container}>
       <StatusBar style="auto" />
       <AddButton content={"Ajouter une liste"}/>
-      
+      <FlatList
+        data={lists}
+        renderItem={renderList}
+        keyExtractor={(list) => list.id}
+      />
     </View>
     
   );

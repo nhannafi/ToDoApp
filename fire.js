@@ -11,56 +11,58 @@ const firebaseConfig = {
   };
 
 export default class Fire {
-    constructor(callback){
-        this.init(callback);
+    constructor (callback) {
+        this.init(callback)
     }
 
-    init(callback){
-        if(!firebase.apps.length){
-            firebase.initializeApp(firebaseConfig);
+    init (callback) {
+        if (!firebase.apps.length) {
+            firebase.initializeApp(firebaseConfig)
         }
-        firebase.auth().onAuthStateChanged(user =>{
-            if(user){
-                callback(null);
+
+        firebase.auth().onAuthStateChanged(user => {
+            if (user) {
+                callback(null)
             } else {
-                firebase.auth().signInAnonymously.cath(error =>{
-                    callback(error);
-                });
+                firebase.auth().signInAnonymously().catch(e => {
+                    callback(e)
+                })
             }
         })
     }
-    addList(List) {
-        let ref = this.ref;
-        ref.add(list);
-    }
-    deleteList(list){
-        let ref = this.ref;
-        ref.doc(list.id).delete();
-    }
 
-    updateList(list){
-        let ref = this.ref;
-        ref.doc(list.id).update(list);
+    get ref() {
+        return firebase.firestore().collection('lists');
     }
     
-    detach(){
-        this.unsubscribe();
-    }
-
-    get ref(){
-        return firebase.firestore().collection("lists");
-    }
-
-    getLists(callback){
-        let ref = this.ref.orderBy("name");
+    getLists (callback) {
+        let ref = this.ref.orderBy('name')
         this.unsubscribe = ref.onSnapshot(snapshot => {
-            let lists =[];
-            snapshot.forEach(doc => {
-                lists.push({ id: doc.id, ...doc.data() });
-            });
-            callback(lists);
-        }, function(error){
-            console.log(error);
-        });
+            let lists = []
+            snapshot.forEach(item => {
+                lists.push({id: item.id, ...item.data()})
+            })
+            callback(lists)
+        }, (e) => console.log(e)
+        )
+    }
+    
+    addList (list) {
+        let ref = this.ref
+        ref.add(list)
+    }
+
+    updateList (list) {
+        let ref = this.ref
+        ref.doc(list.id).delete()
+    }
+
+    deleteList (list) {
+        let ref = this.ref
+        ref.doc(list.id).update(list)
+    }
+
+    detach () {
+        this.unsubscribe()
     }
 }
