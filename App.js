@@ -44,7 +44,6 @@ export default function App() {
         renderItem={renderTodo}
         keyExtractor={(list) => list.id}
       />
-      <Text>modifier</Text>
     </View>
   );
  
