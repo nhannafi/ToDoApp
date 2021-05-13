@@ -4,10 +4,10 @@ import {View, Text, TouchableOpacity } from 'react-native';
 export default function AddButton(props){
  return (
   <View>
-   <TouchableOpacity>
-    <Text style={{textAlign: 'center'}}>+</Text>
+   <TouchableOpacity onPress={props.onClick}>
+    <Text style={{textAlign: 'center', marginTop:20}}>+</Text>
    </TouchableOpacity>
-   <Text style={{ borderRadius:7, backgroundColor:'gainsboro'}}>{props.content}</Text>
+   <Text style={{ borderRadius:7, backgroundColor:'gainsboro', marginTop:20}}>{props.content}</Text>
   </View>
  );
 
