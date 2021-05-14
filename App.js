@@ -64,8 +64,8 @@ const closeUpdate =()=>{
     <View style={{display:'flex'}}
     >
       <Text>Liste des taches : </Text>
-      <Text>{list.item.title}</Text> 
-      <Text> completed : {list.item.completed}</Text> 
+      <Text>tâche : {list.item.title}</Text> 
+      <Text> completed : {list.item.completed.toString()}</Text> 
     </View>
   );
 

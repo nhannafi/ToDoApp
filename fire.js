@@ -32,7 +32,7 @@ export default class Fire {
     }
 
     get ref() {
-        return firebase.firestore().collection('lists');
+        return firebase.firestore().collection('vrais');
     }
     
     getLists (callback) {
