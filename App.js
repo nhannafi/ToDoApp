@@ -1,8 +1,9 @@
 import { StatusBar } from 'expo-status-bar';
+import colors from "./Colors";
+import AddButton from "components/AddButton"
 import React, { useEffect, useState } from 'react';
 import { StyleSheet, Text, View, FlatList, TextInput} from 'react-native';
 import AddNewList from './components/AddNewList';
-
 
 import Fire from './fire';
 
@@ -57,7 +58,13 @@ export default function App() {
     </View>    
   );
 }
-
+if (loading){
+    return(
+        <View style={styles.container}>
+        <ActivityIndicator size="large" color={cplors.blue}/>
+        </View>
+    );
+}
 const styles = StyleSheet.create({
   container: {
     flex: 1,
