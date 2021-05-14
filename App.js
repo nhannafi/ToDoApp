@@ -5,9 +5,9 @@ import {  StyleSheet,
           Text,
           View,
           FlatList,
-          TextInput,
           Modal,
           Pressable,
+          TextInput,
         } from 'react-native';
 import AddNewList from './components/AddNewList';
 import { ColorPicker, TriangleColorPicker } from 'react-native-color-picker'
@@ -105,6 +105,7 @@ export default function App() {
       showsHorizontalScrollIndicator={false}
       keyboardShouldPersistTaps="always"  
       />
+      
     </View>    
   );
 }
