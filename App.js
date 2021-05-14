@@ -4,7 +4,7 @@ import AddButton from "components/AddButton"
 import React, { useEffect, useState } from 'react';
 import { StyleSheet, Text, View, FlatList, TextInput} from 'react-native';
 import AddNewList from './components/AddNewList';
-
+import { ColorPicker, TriangleColorPicker } from 'react-native-color-picker'
 import Fire from './fire';
 
 export default function App() {
@@ -28,8 +28,20 @@ export default function App() {
       };
     });
   }, []);
+  
+  if (loading){
+    return(
+        <View style={styles.container}>
+        <ActivityIndicator size="large" color={colors.blue}/>
+        </View>
+    );
+}
 
-  const renderTodo = (list) => (
+  function toggleAddToDoModal(){
+    setAddTodoVisible(!addTodoVisible);
+  }
+   
+    const renderTodo = (list) => (
     <View style={{display:'flex'}}
     >
       <Text>{list.item.title}</Text> 
@@ -50,21 +62,36 @@ export default function App() {
  
   return (
     <View style={styles.container}>
-
-      <StatusBar style="auto" />
-      <AddNewList></AddNewList>
-  
-      <FlatList data={lists} renderItem={renderList} keyExtractor={(list) => list.id}/>
+      <Modal
+      animationType='slide'
+      visible={addTodoVisible()}
+      onRequestClose={ ()=>toggleAddToDoModal}
+      style={{backgroundColor:addTodoVisible ? 'red': 'blue'}}
+      >
+        <StatusBar style="auto" />
+        <AddNewList onClose ={()=> toogleAddTodoModal()}></AddNewList>
+        
+      </Modal>
+      <View style={{ flexDirection:"row"}}>
+        <View style={styles.divider}/>
+          <Text style={styles.title}>
+            <Text style={{ fontWeight: "bold" , color: colors.blue}}>My To Do </Text> App
+          </Text>
+          <View style={styles.divider}/>
+      </View>
+      
+      <FlatList 
+      data={lists} 
+      renderItem={renderList} 
+      keyExtractor={(list) => list.id.toString()}
+      horizontal
+      showsHorizontalScrollIndicator={false}
+      keyboardShouldPersistTaps="always"  
+      />
     </View>    
   );
 }
-if (loading){
-    return(
-        <View style={styles.container}>
-        <ActivityIndicator size="large" color={cplors.blue}/>
-        </View>
-    );
-}
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
