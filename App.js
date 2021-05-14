@@ -11,19 +11,26 @@ import Fire from './fire';
 export default function App() {
   const [update, setUpdate]= useState(false);
   const [color, setColor] = useState('#000');
+  const [newName, setNewName] = useState(null)
   const [addList, setAddList] = useState(false);
   const [lists, setLists] = useState([]);
   const [loading, setLoading] = useState(true);
 
   const updateList = (list) => {
-    const firebase = new Fire(async error => {
-        if (error) return Alert.alert('Une erreur est survenue')
-        await firebase.updateList(list)
+    console.log('ici', list);
+    console.log('newName', newName);
+
+    let newListTmp = {
+      name: newName,
+      id: list.item.id,
+      color: list.item.color,
+      todos: list.item.todos
+    };
+    firebase.updateList(newListTmp)
         setUpdate(false)
         return function unsubscribe() {
             firebase.detach()
-        }
-    })
+    }
 }
 
 const deleteList =(list) => {
@@ -81,8 +88,9 @@ const closeUpdate =()=>{
         :
         <>
       <TextInput
-        onChangeText={name => ({name})}
+        onChangeText={name => (setNewName(name))}
         defaultValue={list.item.name}
+        //value={newName}
         placeholder="Nom"
         keyboardType="default"
       />
@@ -109,6 +117,7 @@ const styles = StyleSheet.create({
   container: {
     alignItems: 'center',
     justifyContent: 'center',
+
   },
 
   row: {
