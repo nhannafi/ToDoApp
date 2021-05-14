@@ -2,18 +2,13 @@ import { StatusBar } from 'expo-status-bar';
 import React, { useEffect, useState } from 'react';
 import { StyleSheet, Text, View, FlatList, Button, TextInput} from 'react-native';
 import AddNewList from './components/AddNewList';
-import {createStackNavigator} from '@react-navigation/stack'
-import 'react-native-gesture-handler';
 import OutlineButton from './components/OutlineButton';
 
-import {NavigationContainer} from '@react-navigation/native'
-import UpdateList from './components/UpdateList';
 
 import Fire from './fire';
 
-const Stack = createStackNavigator()
 
-export default function App({navigation}) {
+export default function App() {
   const [update, setUpdate]= useState(false);
   const [color, setColor] = useState('#000');
   const [addList, setAddList] = useState(false);
@@ -25,7 +20,6 @@ export default function App({navigation}) {
         if (error) return Alert.alert('Une erreur est survenue')
         await firebase.updateList(list)
         setUpdate(false)
-        getLists()
         return function unsubscribe() {
             firebase.detach()
         }
@@ -61,16 +55,14 @@ const closeUpdate =()=>{
   }, []);
 
   const renderTodo = (list) => (
-    <View style={{display:'flex'}}
-    >
-      <Text>Liste des taches : </Text>
+    <View style={styles.renderTodo}>
       <Text>tâche : {list.item.title}</Text> 
       <Text> completed : {list.item.completed.toString()}</Text> 
     </View>
   );
 
   const renderList = ( list ) => (
-    <View>
+    <View style={styles.renderList}>
       {
       !update ?
       <>
@@ -78,7 +70,9 @@ const closeUpdate =()=>{
       <FlatList
         data={list.item.todos}
         renderItem={renderTodo}
-        keyExtractor={(list) => list.id}/>
+        keyExtractor={(list) => list.id}
+      
+        />
         <OutlineButton onClick={() => setUpdate(true)} title={'modifier'}/>
         <OutlineButton onClick={() => (deleteList(list.item.id))} title={'supprimer'}/>
         </> 
@@ -89,9 +83,8 @@ const closeUpdate =()=>{
         defaultValue={list.item.name}
         placeholder="Nom"
         keyboardType="default"
-        multiline={true}
       />
-      <OutlineButton onClick={() => updateList(list.item.id, list.item.name)} title={'valider'}/>
+      <OutlineButton onClick={() => updateList(list)} title={'valider'}/>
       <OutlineButton onClick={() => closeUpdate(!update)} title={'annuler'}/>
       </>
       }
@@ -112,9 +105,13 @@ const closeUpdate =()=>{
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
   },
+  renderList :{
+    display: 'flex',
+  },
+  renderTodo: {
+    display: 'flex',
+  }
 });

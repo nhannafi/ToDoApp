@@ -7,6 +7,7 @@ import Fire from '../fire';
 export default function AddNewList(props){
  const [name, setName]= useState(null);
  const [color, setColor] = useState('#000');
+ const [todos, setTodos] = useState([{}]);
  const [addList, setAddList] = useState(false);
 
  const submit=()=>{
@@ -18,6 +19,7 @@ export default function AddNewList(props){
     setAddList(false);
     setName(null)
     setColor('#000')
+    setTodos([{}])
 
     return function unsubscribe() {
         firebase.detach()
