@@ -2,11 +2,12 @@
   "expo": {
     "name": "todoApp",
     "slug": "todoApp",
+    "sdkVersion":"39.0.0",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/todo.jpg",
     "splash": {
-      "image": "./assets/splash.png",
+      "image": "./assets/todo.jpg",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
