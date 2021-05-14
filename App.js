@@ -55,26 +55,28 @@ const closeUpdate =()=>{
   }, []);
 
   const renderTodo = (list) => (
-    <View style={styles.renderTodo}>
-      <Text>tâche : {list.item.title}</Text> 
+    <View>
+      <Text style={{color:'cadetblue'}}>{list.item.title}</Text>
       <Text> completed : {list.item.completed.toString()}</Text> 
     </View>
   );
 
   const renderList = ( list ) => (
-    <View style={styles.renderList}>
+    <View >
       {
       !update ?
       <>
-      <Text>{list.item.name}</Text> 
+      <Text style={{marginTop:5, marginBottom:5, fontSize:30}}>{list.item.name}</Text> 
       <FlatList
         data={list.item.todos}
         renderItem={renderTodo}
         keyExtractor={(list) => list.id}
-      
         />
+        <View style={styles.boutons}> 
         <OutlineButton onClick={() => setUpdate(true)} title={'modifier'}/>
+        <Text>   </Text>
         <OutlineButton onClick={() => (deleteList(list.item.id))} title={'supprimer'}/>
+        </View>
         </> 
         :
         <>
@@ -98,7 +100,7 @@ const closeUpdate =()=>{
       <StatusBar style="auto" />
       <AddNewList></AddNewList>
   
-      <FlatList data={lists} renderItem={renderList} keyExtractor={(list) => list.id}/>
+      <FlatList data={lists} renderItem={renderList} keyExtractor={(list) => list.id} />
     </View>    
   );
 }
@@ -108,10 +110,26 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  renderList :{
-    display: 'flex',
+
+  row: {
+    flexDirection: "row",
+    flexWrap: "wrap",
+    padding: 10,
+    marginTop:10
   },
-  renderTodo: {
-    display: 'flex',
+  boutons: {
+    margin:4,
+    padding:5,
+    flexDirection: "row",
+    flexWrap: "wrap",
+    paddingVertical: 8,
+    borderWidth: 2,
+    borderColor: "#20232a",
+    borderRadius: 6,
+    backgroundColor: "#61dafb",
+    color: "#20232a",
+    textAlign: "center",
+    fontSize: 30,
+    fontWeight: "bold"
   }
 });
