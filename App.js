@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import colors from "./Colors";
+import Colors from "./Colors";
 import AddButton from "components/AddButton"
 import React, { useEffect, useState } from 'react';
 import { StyleSheet, Text, View, FlatList, TextInput} from 'react-native';

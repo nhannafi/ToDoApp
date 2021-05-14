@@ -3,6 +3,7 @@ import { StyleSheet, Text, View, FlatList, TextInput} from 'react-native';
 import AddButton from './AddButton';
 import OutlineButton from './OutlineButton';
 import Fire from '../fire';
+import Colors from "./Colors";
 
 export default function AddNewList(props){
  const [name, setName]= useState(null);

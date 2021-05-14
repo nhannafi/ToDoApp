@@ -1,6 +1,6 @@
 import React from 'react';
 import {View, Text, TouchableOpacity } from 'react-native';
-
+import Colors from "./Colors";
 export default function AddButton(props){
  return (
   <View>
