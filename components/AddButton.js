@@ -7,7 +7,6 @@ export default function AddButton(props){
    <TouchableOpacity onPress={props.onClick}>
     <Text style={{textAlign: 'center', marginTop:20}}>+</Text>
    </TouchableOpacity>
-   <Text style={{ borderRadius:7, backgroundColor:'gainsboro', marginTop:20}}>{props.content}</Text>
   </View>
  );
 
