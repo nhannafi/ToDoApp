@@ -59,7 +59,7 @@ export default class Fire {
 
     deleteList (list) {
         let ref = this.ref
-        ref.doc(list.id).delete()
+        ref.doc(list).delete()
     }
 
     detach () {

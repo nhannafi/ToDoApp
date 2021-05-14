@@ -55,7 +55,7 @@ const closeUpdate =()=>{
         setLoading(false);
       });
       return function unsubscribe(){
-        firebase.detach();
+        firebase.detach(); 
       };
     });
   }, []);
@@ -63,8 +63,9 @@ const closeUpdate =()=>{
   const renderTodo = (list) => (
     <View style={{display:'flex'}}
     >
+      <Text>Liste des taches : </Text>
       <Text>{list.item.title}</Text> 
-      <Text> completed : { list.item.completed}</Text> 
+      <Text> completed : {list.item.completed}</Text> 
     </View>
   );
 
@@ -79,7 +80,7 @@ const closeUpdate =()=>{
         renderItem={renderTodo}
         keyExtractor={(list) => list.id}/>
         <OutlineButton onClick={() => setUpdate(true)} title={'modifier'}/>
-        <OutlineButton onClick={() => (deleteList(list))} title={'supprimer'}/>
+        <OutlineButton onClick={() => (deleteList(list.item.id))} title={'supprimer'}/>
         </> 
         :
         <>
@@ -90,7 +91,7 @@ const closeUpdate =()=>{
         keyboardType="default"
         multiline={true}
       />
-      <OutlineButton onClick={() => updateList(list)} title={'valider'}/>
+      <OutlineButton onClick={() => updateList(list.item.id, list.item.name)} title={'valider'}/>
       <OutlineButton onClick={() => closeUpdate(!update)} title={'annuler'}/>
       </>
       }
