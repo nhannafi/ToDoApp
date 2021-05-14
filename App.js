@@ -1,11 +1,31 @@
 import { StatusBar } from 'expo-status-bar';
-import AddButton from "components/AddButton"
+import AddButton from "components/AddButton";
 import React, { useEffect, useState } from 'react';
-import { StyleSheet, Text, View, FlatList, TextInput} from 'react-native';
+import {  StyleSheet,
+          Text,
+          View,
+          FlatList,
+          TextInput,
+          Modal,
+          Pressable,
+        } from 'react-native';
 import AddNewList from './components/AddNewList';
 import { ColorPicker, TriangleColorPicker } from 'react-native-color-picker'
 import Fire from './fire';
 
+const colors = {
+  darkPrimary: '#303F9F',
+  lightPrimary: '#C5CAE9',
+  primary: '#3F51B5',
+  text: '#FFFFFF',
+  accent: '#536DFE',
+  textPrimary: '#212121',
+  textSecondary: '#757575',
+  textDivider: '#BDBDBD',
+  success: '#00E676',
+  darkSuccess: '#00C853',
+  danger: '#f44336'
+}
 export default function App() {
   const [name, setName]= useState(null);
   const [color, setColor] = useState('#000');
@@ -31,7 +51,7 @@ export default function App() {
   if (loading){
     return(
         <View style={styles.container}>
-        <ActivityIndicator size="large" color={colors.blue}/>
+        <ActivityIndicator size="large" color={colors.primary}/>
         </View>
     );
 }
@@ -72,11 +92,9 @@ export default function App() {
         
       </Modal>
       <View style={{ flexDirection:"row"}}>
-        <View style={styles.divider}/>
-          <Text style={styles.title}>
-            <Text style={{ fontWeight: "bold" , color: colors.blue}}>My To Do </Text> App
+          <Text style={styles.titre}>
+            <Text style={{ fontWeight: "bold" , color: colors.primary}}>My To Do </Text> App
           </Text>
-          <View style={styles.divider}/>
       </View>
       
       <FlatList 
@@ -94,8 +112,27 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: colors.text,
     alignItems: 'center',
     justifyContent: 'center',
   },
+  list: {
+    padding: 20,
+    marginRight: 8
+  },
+  titre: {
+      fontSize: 24,
+  },
+  buttonOpen: {
+    backgroundColor: colors.primary
+  },
+  buttonClose: {
+      backgroundColor: colors.darkPrimary
+  },
+  buttonDanger: {
+      backgroundColor: colors.danger
+  },
+  buttonConfirm: {
+    backgroundColor: colors.darkSuccess
+},
 });
