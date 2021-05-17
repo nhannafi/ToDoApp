@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b434b871-c0ef-457e-989d-12ed9cea4730" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/App.js" afterDir="false" />
-    </list>
+    <list default="true" id="b434b871-c0ef-457e-989d-12ed9cea4730" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -36,10 +34,10 @@
     <servers />
   </component>
   <component name="WindowStateProjectService">
-    <state x="231" y="26" width="1043" height="677" key="AVDManager" timestamp="1620986603669">
+    <state x="231" y="26" width="1043" height="677" key="AVDManager" timestamp="1621178675514">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="395" y="-954" width="1720" height="880" maximized="true" key="AVDManager/0.0.1440.900@0.0.1440.900" timestamp="1620857671632" />
+    <state x="231" y="26" width="1043" height="677" key="AVDManager/0.0.1440.900@0.0.1440.900" timestamp="1621178675514" />
     <state x="419" y="-954" width="1720" height="880" key="AVDManager/195.-1057.1920.1057/0.23.1440.830@195.-1057.1920.1057" timestamp="1620816047657" />
     <state x="286" y="-954" width="1720" height="880" key="AVDManager/195.-1057.1920.1057/0.23.1440.833@195.-1057.1920.1057" timestamp="1620829964787" />
     <state x="231" y="26" width="1043" height="677" key="AVDManager/195.-1080.1920.1080/0.0.1440.900@0.0.1440.900" timestamp="1620986603669" />
